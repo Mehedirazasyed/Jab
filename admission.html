@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form - AFFILUXA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+                        <path d="M12 28L20 12L28 28H24L20 20L16 28H12Z" fill="white"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#667eea"/>
+                                <stop offset="100%" stop-color="#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">AFFILUXA</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="verify.html">Verify Result</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn-login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Admission Form</h1>
+            <p>Start your journey towards a successful career in optical fibre technology</p>
+        </div>
+    </section>
+
+    <!-- Admission Form Section -->
+    <section class="admission-section">
+        <div class="container">
+            <div class="admission-wrapper">
+                <div class="admission-info">
+                    <h2>Why Apply?</h2>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#667eea" opacity="0.1"/>
+                                <path d="M10 16L14 20L22 12" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <div>
+                                <h4>100% Job Guarantee</h4>
+                                <p>Get placed with offer letter</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#667eea" opacity="0.1"/>
+                                <path d="M10 16L14 20L22 12" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <div>
+                                <h4>Earn ₹14,000/month</h4>
+                                <p>During practical training</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#667eea" opacity="0.1"/>
+                                <path d="M10 16L14 20L22 12" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <div>
+                                <h4>Industry Certification</h4>
+                                <p>Certificate + Experience Letter</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#667eea" opacity="0.1"/>
+                                <path d="M10 16L14 20L22 12" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <div>
+                                <h4>Easy Payment</h4>
+                                <p>₹5,000 x 2 months only</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-summary">
+                        <h3>Course: Optical Fibre Technician (OFT)</h3>
+                        <ul>
+                            <li><strong>Duration:</strong> 6 Months</li>
+                            <li><strong>Theory:</strong> 2 Months (Online)</li>
+                            <li><strong>Practical:</strong> 4 Months (On-site)</li>
+                            <li><strong>Fee:</strong> ₹10,000 (₹5,000 x 2)</li>
+                            <li><strong>Eligibility:</strong> 10th Pass</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="admission-form-card">
+                    <h2>Fill Admission Form</h2>
+                    <p class="form-subtitle">Please provide accurate information</p>
+                    
+                    <form class="admission-form" id="admissionForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="student_name">Student Name <span class="required">*</span></label>
+                            <input type="text" id="student_name" name="student_name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone_number" name="phone_number" required placeholder="Enter your phone number" pattern="[0-9]{10}">
+                            <small>Enter 10-digit mobile number</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">State <span class="required">*</span></label>
+                            <select id="state" name="state" required>
+                                <option value="">Select your state</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address (Optional)</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qualification">Highest Qualification <span class="required">*</span></label>
+                            <select id="qualification" name="qualification" required>
+                                <option value="">Select qualification</option>
+                                <option value="10th">10th Pass</option>
+                                <option value="12th">12th Pass</option>
+                                <option value="Graduate">Graduate</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Full Address <span class="required">*</span></label>
+                            <textarea id="address" name="address" rows="3" required placeholder="Enter your complete address"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course">Course <span class="required">*</span></label>
+                            <select id="course" name="course" required>
+                                <option value="OFT">Optical Fibre Technician (OFT)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span>I agree to the terms and conditions and confirm that the information provided is accurate <span class="required">*</span></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large">Submit Admission Form</button>
+                    </form>
+
+                    <div class="form-note">
+                        <p><strong>Note:</strong> After submitting the form, our team will contact you within 24 hours to complete the admission process.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Message (Hidden by default) -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-card">
+                    <div class="success-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="40" fill="#10b981" opacity="0.1"/>
+                            <circle cx="40" cy="40" r="30" fill="#10b981" opacity="0.2"/>
+                            <path d="M28 40L36 48L52 32" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>Application Submitted Successfully!</h2>
+                    <p>Thank you for applying to AFFILUXA. Our team will contact you within 24 hours.</p>
+                    <p><strong>Application ID:</strong> <span id="applicationId">-</span></p>
+                    <div class="success-actions">
+                        <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        <a href="courses.html" class="btn btn-secondary">View Courses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="url(#gradient2)"/>
+                            <path d="M12 28L20 12L28 28H24L20 20L16 28H12Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#667eea"/>
+                                    <stop offset="100%" stop-color="#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">AFFILUXA</span>
+                    </div>
+                    <p>Building careers in optical fibre technology with guaranteed job placement.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Phone: 924115130</li>
+                        <li>Email: smehediraza@gmail.com</li>
+                        <li>Affiluxa, Bhagwanpur Chowk</li>
+                        <li>Near Railway Station</li>
+                        <li>Muzaffarpur, Bihar 844120</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AFFILUXA. All rights reserved. | Owner: Mehedi Raza Naqvi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Generate random application ID
+            const appId = 'AFF' + Date.now().toString().slice(-8);
+            
+            // Hide form and show success message
+            document.querySelector('.admission-wrapper').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('applicationId').textContent = appId;
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // In production, this would send data to backend
+            console.log('Form submitted:', {
+                name: this.student_name.value,
+                phone: this.phone_number.value,
+                state: this.state.value,
+                email: this.email.value,
+                qualification: this.qualification.value,
+                address: this.address.value,
+                course: this.course.value
+            });
+        });
+    </script>
+</body>
+</html>

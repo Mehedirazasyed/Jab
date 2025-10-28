@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Result - AFFILUXA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+                        <path d="M12 28L20 12L28 28H24L20 20L16 28H12Z" fill="white"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#667eea"/>
+                                <stop offset="100%" stop-color="#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">AFFILUXA</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="verify.html" class="active">Verify Result</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn-login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Verify Section -->
+    <section class="verify-section">
+        <div class="container">
+            <div class="verify-header">
+                <h1>Verify Your Result</h1>
+                <p>Enter your roll number and certificate code to verify your result and download certificate</p>
+            </div>
+            
+            <div class="verify-wrapper">
+                <div class="verify-card">
+                    <form class="verify-form" id="verifyForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="roll_number">Roll Number</label>
+                            <input type="text" id="roll_number" name="roll_number" required placeholder="Enter your roll number">
+                        </div>
+                        <div class="form-group">
+                            <label for="cert_code">Certificate Code</label>
+                            <input type="text" id="cert_code" name="cert_code" required placeholder="Enter certificate verification code">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Verify Result</button>
+                    </form>
+                </div>
+
+                <!-- Result Display (Hidden by default, shown after verification) -->
+                <div class="result-display" id="resultDisplay" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="success-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="32" fill="#10b981" opacity="0.1"/>
+                                    <circle cx="32" cy="32" r="24" fill="#10b981" opacity="0.2"/>
+                                    <path d="M20 32L28 40L44 24" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h2>Certificate Verified Successfully!</h2>
+                        </div>
+                        <div class="result-body">
+                            <div class="result-info">
+                                <span class="label">Student Name:</span>
+                                <span class="value" id="studentName">-</span>
+                            </div>
+                            <div class="result-info">
+                                <span class="label">Roll Number:</span>
+                                <span class="value" id="studentRoll">-</span>
+                            </div>
+                            <div class="result-info">
+                                <span class="label">Course:</span>
+                                <span class="value" id="courseName">-</span>
+                            </div>
+                            <div class="result-info">
+                                <span class="label">Grade:</span>
+                                <span class="value grade" id="studentGrade">-</span>
+                            </div>
+                            <div class="result-info">
+                                <span class="label">Issue Date:</span>
+                                <span class="value" id="issueDate">-</span>
+                            </div>
+                            <div class="result-info">
+                                <span class="label">Certificate Code:</span>
+                                <span class="value" id="certCode">-</span>
+                            </div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn btn-primary" onclick="downloadCertificate()">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-right: 8px;">
+                                    <path d="M10 14L6 10H8V6H12V10H14L10 14Z" fill="white"/>
+                                    <path d="M4 16H16V18H4V16Z" fill="white"/>
+                                </svg>
+                                Download Certificate
+                            </button>
+                            <button class="btn btn-secondary" onclick="downloadExperience()">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-right: 8px;">
+                                    <path d="M10 14L6 10H8V6H12V10H14L10 14Z" fill="currentColor"/>
+                                    <path d="M4 16H16V18H4V16Z" fill="currentColor"/>
+                                </svg>
+                                Download Experience Letter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Display -->
+                <div class="error-display" id="errorDisplay" style="display: none;">
+                    <div class="error-card">
+                        <div class="error-icon">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="32" fill="#ef4444" opacity="0.1"/>
+                                <circle cx="32" cy="32" r="24" fill="#ef4444" opacity="0.2"/>
+                                <path d="M24 24L40 40M40 24L24 40" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2>Verification Failed</h2>
+                        <p>The roll number or certificate code you entered is invalid. Please check and try again.</p>
+                        <button class="btn btn-secondary" onclick="resetForm()">Try Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="verify-info">
+                <div class="info-card">
+                    <h3>How to Verify?</h3>
+                    <ol>
+                        <li>Enter your Roll Number provided during admission</li>
+                        <li>Enter the Certificate Code from your certificate</li>
+                        <li>Click "Verify Result" to view your details</li>
+                        <li>Download your certificate and experience letter</li>
+                    </ol>
+                </div>
+                <div class="info-card">
+                    <h3>Need Help?</h3>
+                    <p>If you're having trouble verifying your result, please contact us:</p>
+                    <ul>
+                        <li>Phone: 924115130</li>
+                        <li>Email: smehediraza@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="url(#gradient2)"/>
+                            <path d="M12 28L20 12L28 28H24L20 20L16 28H12Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#667eea"/>
+                                    <stop offset="100%" stop-color="#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">AFFILUXA</span>
+                    </div>
+                    <p>Building careers in optical fibre technology with guaranteed job placement.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Phone: 924115130</li>
+                        <li>Email: smehediraza@gmail.com</li>
+                        <li>Affiluxa, Bhagwanpur Chowk</li>
+                        <li>Near Railway Station</li>
+                        <li>Muzaffarpur, Bihar 844120</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AFFILUXA. All rights reserved. | Owner: Mehedi Raza Naqvi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('verifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const rollNumber = document.getElementById('roll_number').value;
+            const certCode = document.getElementById('cert_code').value;
+            
+            // Simulate verification (In production, this would be an API call)
+            // For demo purposes, showing success for any input
+            setTimeout(() => {
+                showResult(rollNumber, certCode);
+            }, 1000);
+        });
+
+        function showResult(rollNumber, certCode) {
+            // Hide form and error
+            document.querySelector('.verify-card').style.display = 'none';
+            document.getElementById('errorDisplay').style.display = 'none';
+            
+            // Show result
+            document.getElementById('resultDisplay').style.display = 'block';
+            
+            // Populate data (In production, this would come from API)
+            document.getElementById('studentName').textContent = 'Sample Student Name';
+            document.getElementById('studentRoll').textContent = rollNumber;
+            document.getElementById('courseName').textContent = 'Optical Fibre Technician (OFT)';
+            document.getElementById('studentGrade').textContent = 'A+';
+            document.getElementById('issueDate').textContent = new Date().toLocaleDateString();
+            document.getElementById('certCode').textContent = certCode;
+        }
+
+        function showError() {
+            document.querySelector('.verify-card').style.display = 'none';
+            document.getElementById('resultDisplay').style.display = 'none';
+            document.getElementById('errorDisplay').style.display = 'block';
+        }
+
+        function resetForm() {
+            document.querySelector('.verify-card').style.display = 'block';
+            document.getElementById('resultDisplay').style.display = 'none';
+            document.getElementById('errorDisplay').style.display = 'none';
+            document.getElementById('verifyForm').reset();
+        }
+
+        function downloadCertificate() {
+            alert('Certificate download will be implemented with backend integration');
+            // In production: window.location.href = '/api/download-certificate?roll=' + rollNumber;
+        }
+
+        function downloadExperience() {
+            alert('Experience letter download will be implemented with backend integration');
+            // In production: window.location.href = '/api/download-experience?roll=' + rollNumber;
+        }
+    </script>
+</body>
+</html>
